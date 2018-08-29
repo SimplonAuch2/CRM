@@ -40,7 +40,7 @@ Créer un logiciel de gestion de relation commerciale (CRM) possédant les carac
 	* numéro de téléphone
 	* date d’inscription
 
-	* Table produits :
+* Table produits :
 	* nom
 	* prix
 	* stock
@@ -119,7 +119,7 @@ Tenir un journal de bord de l’organisation du projet, dans lequel sont report�
 * les ressources (personnes) affectées à chaque tâche
 * les délais de réalisation, et difficultés rencontrées
 
-##Livrables
+## Livrables
 Le logiciel doit être fourni prêt à l’emploi, avec des données fictives complètes (dont on ne risque pas d’avoir honte) 
 
 FakerPHP pour simuler les données.
