@@ -1,4 +1,21 @@
+.page
+{
+	margin:0;
+	padding:0;
+}
+
+.formCustomer
+{
+	display:flex;
+	position:absolute;
+	left:600px;
+}
+
+
 .titreForm
 {
 	text-align: center;
 }
+
+
+
