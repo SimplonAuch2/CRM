@@ -4,30 +4,29 @@ connect.php
 
 function.php
 
+index.php
 
-MANAGER
+profile.php
 
-product_manager.php		+	form_product_manager.php
+
+MANAGER (lecture)
+
+product_manager.php
 
 client_manager.php
 
 order_manager.php
 
-SELLER
+
+SELLER (lecture + écriture)
 
 product_seller.php
 
-client_seller.php
+client_seller.php	+	form_client.php
 
-order_seller.php
+order_seller.php	+	form_order.php		+ 	form_quote.php
 
-COMMON
 
-index.php
 
-form_client.php
 
-form_order.php
-
-profile.php
 
