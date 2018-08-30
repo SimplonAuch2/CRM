@@ -1,0 +1,33 @@
+CRÉATION PAGES CRM
+
+connect.php
+
+function.php
+
+
+MANAGER
+
+product_manager.php		+	form_product_manager.php
+
+client_manager.php
+
+order_manager.php
+
+SELLER
+
+product_seller.php
+
+client_seller.php
+
+order_seller.php
+
+COMMON
+
+index.php
+
+form_client.php
+
+form_order.php
+
+profile.php
+
