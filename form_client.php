@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
+
 		<meta charset="utf-8">
-		<title>client_seller</title>
+		<title>form_client</title>
 	</head>
 	<body>
-		
-		
+
+
 
 	</body>
 </html>

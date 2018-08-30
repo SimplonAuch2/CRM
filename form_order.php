@@ -2,11 +2,9 @@
 <html lang="fr">
 	<head>
 		<meta charset="utf-8">
-		<title>client_seller</title>
+		<title>form_order</title>
 	</head>
 	<body>
-		
-		
 
 	</body>
 </html>
