@@ -6,6 +6,12 @@
 		<title>form_client</title>
 	</head>
 	<body>
+		<form>
+			
+
+
+
+		</form>
 
 
 
