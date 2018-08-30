@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<title>client_seller</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	<body>
 		

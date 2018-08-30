@@ -1,17 +1,13 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
+	<head>
+		<title>client_manager</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
 
-<head>
-	<title>client_manager</title>
-	<meta charset="utf-8">
-
-
-</head>
-
-<body>
-
-	<?php
-	?>
-
-</body>
+	<body>
+		<?php
+		?>
+	</body>
 </html>
