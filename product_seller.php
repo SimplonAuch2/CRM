@@ -1,27 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 	<head>
 		<meta charset="utf-8">
 		<title>product_seller</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	<body>
-		<div id="contentProductSeller">
-			<div id="product">
-				<table class="tableProduct">
+		<div id="contentPurchaseSeller">
+			<div id="purchase">
+				<table class="tablePurchase">
 
 					<thead>
 
-						<th>ID</th>
-						<th>Nom</th>
+						<th>Client</th>
+						<th>Produits</th>
+						<th>Quantités</th>
 						<th>Prix</th>
-						<th>Stock</th>
-						<th>Lieu</th>
-						<th>Description</th>
-						<th>Taille</th>
-						<th>Poids</th>
-						<th>Référence</th>
-						<th>État</th> <!-- WARNING -->
+						<th>Réductions</th>
+						<th>Frais de port</th>
+						<th>Prix total</th>
+						<th>TVA</th>
+						<th>Adresse de livraison</th>
+						<th>Adresse de facturation</th>
+						<th>Date</th>
 
 					</thead>
 
@@ -31,6 +32,7 @@
 					// CONNEXION WITH THE FILE connect.php
 					try
 					{
+
 						$bdd = new PDO('mysql:host=localhost;dbname=crmV2;charset=utf8', 'loups', 'Qwant00;');
 					}
 					catch(Exception $e)
@@ -39,6 +41,7 @@
 					}
 
 					// on récupère et on affiche le contenu de la base de données
+
 					$req = $bdd->query('SELECT * FROM product');
 					while ($donnees = $req->fetch())
 						{ echo
@@ -52,6 +55,7 @@
 							'<td>' . $donnees['productWeight'] . '</td>' .
 							'<td>' . $donnees['productReference'] . '</td>' .
 							'<td>' . $donnees['productState'] . '</td></tr>';
+
 						}
 					?>
 

@@ -6,12 +6,16 @@
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	<body>
+		<?php 
+			require("authentification.php")
+
+		?>
 
 		<div class="page">
 
 			<div id="divConnexion">
 
-				<form id="formConnexion">
+				<form method="POST" id="formConnexion">
 
 					<div>
 						<h3>CONNEXION</h3>
