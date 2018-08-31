@@ -31,7 +31,7 @@
 					// CONNEXION WITH THE FILE connect.php
 					try
 					{
-						$bdd = new PDO('mysql:host=localhost;dbname=crm;charset=utf8', 'loups', 'Qwant00;');
+						$bdd = new PDO('mysql:host=localhost;dbname=crmV2;charset=utf8', 'loups', 'Qwant00;');
 					}
 					catch(Exception $e)
 					{
@@ -39,19 +39,19 @@
 					}
 
 					// on récupère et on affiche le contenu de la base de données
-					$req = $bdd->query('SELECT * FROM products');
+					$req = $bdd->query('SELECT * FROM product');
 					while ($donnees = $req->fetch())
 						{ echo
-							'<tr><td>' . $donnees['product_id'] . '</td>' .
-							'<td>' . $donnees['product_name'] . '</td>' .
-							'<td>' . $donnees['product_price'] . '</td>' .
-							'<td>' . $donnees['product_stock'] . '</td>' .
-							'<td>' . $donnees['product_place'] . '</td>' .
-							'<td>' . $donnees['product_description'] . '</td>' .
-							'<td>' . $donnees['product_size'] . '</td>' .
-							'<td>' . $donnees['product_weight'] . '</td>' .
-							'<td>' . $donnees['product_reference'] . '</td>' .
-							'<td>' . $donnees['product_state'] . '</td></tr>';
+							'<tr><td>' . $donnees['productId'] . '</td>' .
+							'<td>' . $donnees['productName'] . '</td>' .
+							'<td>' . $donnees['productPrice'] . '</td>' .
+							'<td>' . $donnees['productStock'] . '</td>' .
+							'<td>' . $donnees['productPlace'] . '</td>' .
+							'<td>' . $donnees['productDescription'] . '</td>' .
+							'<td>' . $donnees['productSize'] . '</td>' .
+							'<td>' . $donnees['productWeight'] . '</td>' .
+							'<td>' . $donnees['productReference'] . '</td>' .
+							'<td>' . $donnees['productState'] . '</td></tr>';
 						}
 					?>
 
