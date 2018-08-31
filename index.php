@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
@@ -7,6 +8,20 @@
 </head>
 <body>
         <h1>Agenda</h1>
+=======
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>index</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body>
+		<?php 
+			require("authentification.php")
+
+		?>
+>>>>>>> d96f05a1d9ba1e479696044ada62dc1ec13ce0c3
 
     <?php
 $list_fer=array(7);//Liste pour les jours ferié; EX: $list_fer=array(7,1)==>tous les dimanches et les Lundi seront des jours fériers
@@ -139,6 +154,10 @@ function go_lien(a)
     </html>
      
 
+<<<<<<< HEAD
+=======
+				<form method="POST" id="formConnexion">
+>>>>>>> d96f05a1d9ba1e479696044ada62dc1ec13ce0c3
 
 
         <li><a href="ajoutevent.php">Ajouter un événement</a></li>
