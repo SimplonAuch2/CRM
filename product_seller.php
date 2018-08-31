@@ -32,7 +32,8 @@
 					// CONNEXION WITH THE FILE connect.php
 					try
 					{
-						$bdd = new PDO('mysql:host=localhost;dbname=crmV2;charset=utf8', 'user_bdd', 'password_bdd');
+
+						$bdd = new PDO('mysql:host=localhost;dbname=crmV2;charset=utf8', 'loups', 'Qwant00;');
 					}
 					catch(Exception $e)
 					{
@@ -40,20 +41,21 @@
 					}
 
 					// on récupère et on affiche le contenu de la base de données
-					$req = $bdd->query('SELECT * FROM purchase');
+
+					$req = $bdd->query('SELECT * FROM product');
 					while ($donnees = $req->fetch())
 						{ echo
-							'<tr><td>' . $donnees['customerId'] . '</td>' .
-							'<td>' . $donnees['purchaseProducts'] . '</td>' .
-							'<td>' . $donnees['purchaseQuantity'] . '</td>' .
-							'<td>' . $donnees['purchasePrice'] . '</td>' .
-							'<td>' . $donnees['purchaseReduction'] . '</td>' .
-							'<td>' . $donnees['purchasePostalCharges'] . '</td>' .
-							'<td>' . $donnees['purchaseTotalprice'] . '</td>' .
-							'<td>' . $donnees['purchaseTaxes'] . '</td>' .
-							'<td>' . $donnees['purchaseDeliveryAddress'] . '</td>' .
-							'<td>' . $donnees['purchaseBillingAddress'] . '</td>' .
-							'<td>' . $donnees['purchaseDate'] . '</td></tr>';
+							'<tr><td>' . $donnees['productId'] . '</td>' .
+							'<td>' . $donnees['productName'] . '</td>' .
+							'<td>' . $donnees['productPrice'] . '</td>' .
+							'<td>' . $donnees['productStock'] . '</td>' .
+							'<td>' . $donnees['productPlace'] . '</td>' .
+							'<td>' . $donnees['productDescription'] . '</td>' .
+							'<td>' . $donnees['productSize'] . '</td>' .
+							'<td>' . $donnees['productWeight'] . '</td>' .
+							'<td>' . $donnees['productReference'] . '</td>' .
+							'<td>' . $donnees['productState'] . '</td></tr>';
+
 						}
 					?>
 
