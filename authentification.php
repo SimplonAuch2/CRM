@@ -12,7 +12,7 @@ if (isset($_POST['userSubmit'])==true)
 
     try 
     {
-      $bdd = new PDO('mysql:host=localhost;dbname=CRM;charset=utf8', 'annie', '12345678');
+      $bdd = new PDO('mysql:host=localhost;dbname=CRM;charset=utf8', 'X', 'Y');
     } 
     catch (Exception $e) 
     {
