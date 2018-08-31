@@ -24,22 +24,22 @@
 						</form>
 					</tr>";
 			// we display every rows from the table in the table, 1 by 1
-			$responses = $db->query('SELECT * FROM customers');
+			$responses = $db->query('SELECT * FROM customer');
 			while($datas=$responses->fetch())
 			{
 				echo
 						"<tr>
-							<td>" . $datas['customer_name'] . "</td>
-							<td>" . $datas['customer_firstname'] . "</td>
-							<td>" . $datas['customer_birthday'] . "</td>
-							<td>" . $datas['customer_city'] . "</td>
-							<td>" . $datas['customer_adress'] . "</td>
-							<td>" . $datas['customer_zipCode'] . "</td>
-							<td>" . $datas['customer_phoneNumber'] . "</td>
-							<td>" . $datas['customer_registrationDate'] . "</td>
-							<td>" . $datas['customer_gender'] . "</td>
-							<td>" . $datas['customer_email'] . "</td>
-							<td>" . $datas['customer_country'] . "</td>
+							<td>" . $datas['customerLastName'] . "</td>
+							<td>" . $datas['customerFirstName'] . "</td>
+							<td>" . $datas['customerBirthday'] . "</td>
+							<td>" . $datas['customerCity'] . "</td>
+							<td>" . $datas['customerAdress'] . "</td>
+							<td>" . $datas['customerZipCode'] . "</td>
+							<td>" . $datas['customerPhoneNumber'] . "</td>
+							<td>" . $datas['customerRegistrationDate'] . "</td>
+							<td>" . $datas['customerGender'] . "</td>
+							<td>" . $datas['customerEmail'] . "</td>
+							<td>" . $datas['customerCountry'] . "</td>
 						</tr>";
 			}
 
@@ -87,25 +87,26 @@
 						</form>
 					</tr>";
 			// we display every rows from the table in the table, 1 by 1
-			$responses = $db->query('SELECT * FROM customers WHERE fk_trader = ' . 1 );
+			$responses = $db->query('SELECT * FROM customer WHERE fkUser = ' . 2/*put the id of the user instead of "1"*/ );
 			while($datas=$responses->fetch())
 			{
 				echo
 						"<tr>
-							<td>" . $datas['customer_name'] . "</td>
-							<td>" . $datas['customer_firstname'] . "</td>
-							<td>" . $datas['customer_birthday'] . "</td>
-							<td>" . $datas['customer_city'] . "</td>
-							<td>" . $datas['customer_adress'] . "</td>
-							<td>" . $datas['customer_zipCode'] . "</td>
-							<td>" . $datas['customer_phoneNumber'] . "</td>
-							<td>" . $datas['customer_registrationDate'] . "</td>
-							<td>" . $datas['customer_gender'] . "</td>
-							<td>" . $datas['customer_email'] . "</td>
-							<td>" . $datas['customer_country'] . "</td>
+							<td>" . $datas['customerLastName'] . "</td>
+							<td>" . $datas['customerFirstName'] . "</td>
+							<td>" . $datas['customerBirthday'] . "</td>
+							<td>" . $datas['customerCity'] . "</td>
+							<td>" . $datas['customerAdress'] . "</td>
+							<td>" . $datas['customerZipCode'] . "</td>
+							<td>" . $datas['customerPhoneNumber'] . "</td>
+							<td>" . $datas['customerRegistrationDate'] . "</td>
+							<td>" . $datas['customerGender'] . "</td>
+							<td>" . $datas['customerEmail'] . "</td>
+							<td>" . $datas['customerCountry'] . "</td>
 							<form method='POST'>
 								<td><button name='modify' type='submit'>Modifier</button></td>
 								<td><button name='delete' type='submit'>Delete</button></td>
+								<td><input class='hidden' name='customerId' value='" . $datas['customerId'] . "'></td>
 							</form>
 						</tr>";
 			}
