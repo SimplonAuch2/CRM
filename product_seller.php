@@ -12,16 +12,17 @@
 
 					<thead>
 
-						<th>ID</th>
-						<th>Nom</th>
+						<th>Client</th>
+						<th>Produits</th>
+						<th>Quantités</th>
 						<th>Prix</th>
-						<th>Stock</th>
-						<th>Lieu</th>
-						<th>Description</th>
-						<th>Taille</th>
-						<th>Poids</th>
-						<th>Référence</th>
-						<th>État</th> <!-- WARNING -->
+						<th>Réductions</th>
+						<th>Frais de port</th>
+						<th>Prix total</th>
+						<th>TVA</th>
+						<th>Adresse de livraison</th>
+						<th>Adresse de facturation</th>
+						<th>Date</th>
 
 					</thead>
 
@@ -31,7 +32,7 @@
 					// CONNEXION WITH THE FILE connect.php
 					try
 					{
-						$bdd = new PDO('mysql:host=localhost;dbname=crm;charset=utf8', 'loups', 'Qwant00;');
+						$bdd = new PDO('mysql:host=localhost;dbname=crm;charset=utf8', 'user_bdd', 'password_bdd');
 					}
 					catch(Exception $e)
 					{
@@ -39,19 +40,20 @@
 					}
 
 					// on récupère et on affiche le contenu de la base de données
-					$req = $bdd->query('SELECT * FROM products');
+					$req = $bdd->query('SELECT * FROM purchase');
 					while ($donnees = $req->fetch())
 						{ echo
-							'<tr><td>' . $donnees['product_id'] . '</td>' .
-							'<td>' . $donnees['product_name'] . '</td>' .
-							'<td>' . $donnees['product_price'] . '</td>' .
-							'<td>' . $donnees['product_stock'] . '</td>' .
-							'<td>' . $donnees['product_place'] . '</td>' .
-							'<td>' . $donnees['product_description'] . '</td>' .
-							'<td>' . $donnees['product_size'] . '</td>' .
-							'<td>' . $donnees['product_weight'] . '</td>' .
-							'<td>' . $donnees['product_reference'] . '</td>' .
-							'<td>' . $donnees['product_state'] . '</td></tr>';
+							'<tr><td>' . $donnees['customer_id'] . '</td>' .
+							'<td>' . $donnees['purchase_products'] . '</td>' .
+							'<td>' . $donnees['purchase_quantity'] . '</td>' .
+							'<td>' . $donnees['purchase_price'] . '</td>' .
+							'<td>' . $donnees['purchase_reduction'] . '</td>' .
+							'<td>' . $donnees['purchase_postal_charges'] . '</td>' .
+							'<td>' . $donnees['purchase_totalprice'] . '</td>' .
+							'<td>' . $donnees['purchase_taxes'] . '</td>' .
+							'<td>' . $donnees['purchase_delivery_address'] . '</td>' .
+							'<td>' . $donnees['purchase_billing_address'] . '</td>' .
+							'<td>' . $donnees['purchase_date'] . '</td></tr>';
 						}
 					?>
 

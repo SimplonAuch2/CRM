@@ -6,18 +6,21 @@
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	<body>
-		<?php try  
+
+		<?php 
+			// connection to the database
+			try  
 			{
-				$bdd = new PDO('mysql:host=localhost;dbname=CMR;charset=utf8', 'admin', 'azertyuio');
+				$bdd = new PDO('mysql:host=localhost;dbname=CRM;charset=utf8', 'admin', 'azertyuio');
 			}
-			// en cas d'erreur on affiche un message :
+			// in case of error we display a message
 			catch (Exception $e)
 			{
 			    die('Erreur : ' . $e->getMessage());
-			} 
+			}
+			// $responses get all the informations contained in the table "customers"
+			$responses = $bdd->query('SELECT * FROM customers');
 			echo
-				$reponses = $bdd->query('SELECT * FROM customers');
-				
 				"<table id='displayCustomers'>
 					<tr>
 						<th>Nom</th>
@@ -32,22 +35,23 @@
 						<th>Email</th>
 						<th>Pays</th>
 					</tr>";
-			while($donnees=$reponses->fetch())
+			// we display every rows from the table in the table, 1 by 1
+			while($datas=$responses->fetch())
 			{
 				echo
 					"
 						<tr>
-							<td>" . $donnees['customer_name'] . "</td>
-							<td>" . $donnees['customer_firstname'] . "</td>
-							<td>" . $donnees['customer_birthday'] . "</td>
-							<td>" . $donnees['customer_city'] . "</td>
-							<td>" . $donnees['customer_adress'] . "</td>
-							<td>" . $donnees['customer_zipCode'] . "</td>
-							<td>" . $donnees['customer_registrationDate'] . "</td>
-							<td>" . $donnees['customer_gender'] . "</td>
-							<td>" . $donnees['customer_phoneNumber'] . "</td>
-							<td>" . $donnees['customer_email'] . "</td>
-							<td>" . $donnees['customer_country'] . "</td>
+							<td>" . $datas['customer_name'] . "</td>
+							<td>" . $datas['customer_firstname'] . "</td>
+							<td>" . $datas['customer_birthday'] . "</td>
+							<td>" . $datas['customer_city'] . "</td>
+							<td>" . $datas['customer_adress'] . "</td>
+							<td>" . $datas['customer_zipCode'] . "</td>
+							<td>" . $datas['customer_phoneNumber'] . "</td>
+							<td>" . $datas['customer_registrationDate'] . "</td>
+							<td>" . $datas['customer_gender'] . "</td>
+							<td>" . $datas['customer_email'] . "</td>
+							<td>" . $datas['customer_country'] . "</td>
 						</tr>";
 			}
 
