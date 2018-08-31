@@ -28,7 +28,7 @@
 					</div>
 
 					<div id="inputSubmit">
-						<label for="userSubmit"> 	</label><br>
+						<label for="userSubmit"></label><br>
 						<input type="submit" name="userSubmit"><br><br>
 					</div>
 
