@@ -1,0 +1,29 @@
+
+th, td 
+{
+    padding: 25px;
+    text-align: left;
+      
+}
+table { 
+  width: 100%; 
+  border-collapse: collapse; 
+}
+/* Zebra striping */
+tr:nth-of-type(odd) { 
+  background: #eee; 
+}
+th { 
+  background: #404040; 
+  color: white; 
+  font-weight: bold; 
+}
+td, th { 
+  padding: 25px; 
+  border: 1px solid white;
+  text-align: left; 
+}
+.nom
+{
+	background-color:  	#A9A9A9;
+}
