@@ -22,7 +22,7 @@
 		$this -> place = $place;
 		$this -> description = $description;
 		$this -> size = $size;
-		$this -> wheight = $weight;
+		$this -> weight = $weight;
 		$this -> reference = $reference;
 	}
 
