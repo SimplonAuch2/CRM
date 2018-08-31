@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<title>client_seller</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="crm.css">
 	</head>
 	<body>
 
