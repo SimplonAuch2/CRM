@@ -2,27 +2,26 @@
 <html lang="fr">
 	<head>
 		<meta charset="utf-8">
-		<title>product_seller</title>
+		<title>Produit vendeur</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	<body>
-		<div id="contentPurchaseSeller">
-			<div id="purchase">
-				<table class="tablePurchase">
+		<div id="contentProductSeller">
+			<div id="productSeller">
+				<table class="tableProductSeller">
 
 					<thead>
 
-						<th>Client</th>
-						<th>Produits</th>
-						<th>Quantités</th>
+						<th>ID</th>
+						<th>Nom</th>
 						<th>Prix</th>
-						<th>Réductions</th>
-						<th>Frais de port</th>
-						<th>Prix total</th>
-						<th>TVA</th>
-						<th>Adresse de livraison</th>
-						<th>Adresse de facturation</th>
-						<th>Date</th>
+						<th>Stock</th>
+						<th>Emplacement</th>
+						<th>Description</th>
+						<th>Taille</th>
+						<th>Poids</th>
+						<th>Référence</th>
+						<th>Status</th>
 
 					</thead>
 
@@ -33,7 +32,7 @@
 					try
 					{
 
-						$bdd = new PDO('mysql:host=localhost;dbname=crmV2;charset=utf8', 'loups', 'Qwant00;');
+						$bdd = new PDO('mysql:host=localhost;dbname=crmV4;charset=utf8', 'loups', 'Qwant00;');
 					}
 					catch(Exception $e)
 					{
@@ -54,7 +53,7 @@
 							'<td>' . $donnees['productSize'] . '</td>' .
 							'<td>' . $donnees['productWeight'] . '</td>' .
 							'<td>' . $donnees['productReference'] . '</td>' .
-							'<td>' . $donnees['productState'] . '</td></tr>';
+							'<td>' . $donnees['productStatus'] . '</td></tr>';
 
 						}
 					?>
@@ -62,7 +61,7 @@
 				</table>
 
 				<button id="buttonOK" class="button" type="button">OK</button>
-
 			</div>
+		</div>
 	</body>
 </html>
