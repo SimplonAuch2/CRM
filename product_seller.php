@@ -6,9 +6,9 @@
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	<body>
-		<div id="contentProductSeller">
-			<div id="product">
-				<table class="tableProduct">
+		<div id="contentPurchaseSeller">
+			<div id="purchase">
+				<table class="tablePurchase">
 
 					<thead>
 
@@ -32,7 +32,7 @@
 					// CONNEXION WITH THE FILE connect.php
 					try
 					{
-						$bdd = new PDO('mysql:host=localhost;dbname=crm;charset=utf8', 'user_bdd', 'password_bdd');
+						$bdd = new PDO('mysql:host=localhost;dbname=crmV2;charset=utf8', 'user_bdd', 'password_bdd');
 					}
 					catch(Exception $e)
 					{
@@ -43,17 +43,17 @@
 					$req = $bdd->query('SELECT * FROM purchase');
 					while ($donnees = $req->fetch())
 						{ echo
-							'<tr><td>' . $donnees['customer_id'] . '</td>' .
-							'<td>' . $donnees['purchase_products'] . '</td>' .
-							'<td>' . $donnees['purchase_quantity'] . '</td>' .
-							'<td>' . $donnees['purchase_price'] . '</td>' .
-							'<td>' . $donnees['purchase_reduction'] . '</td>' .
-							'<td>' . $donnees['purchase_postal_charges'] . '</td>' .
-							'<td>' . $donnees['purchase_totalprice'] . '</td>' .
-							'<td>' . $donnees['purchase_taxes'] . '</td>' .
-							'<td>' . $donnees['purchase_delivery_address'] . '</td>' .
-							'<td>' . $donnees['purchase_billing_address'] . '</td>' .
-							'<td>' . $donnees['purchase_date'] . '</td></tr>';
+							'<tr><td>' . $donnees['customerId'] . '</td>' .
+							'<td>' . $donnees['purchaseProducts'] . '</td>' .
+							'<td>' . $donnees['purchaseQuantity'] . '</td>' .
+							'<td>' . $donnees['purchasePrice'] . '</td>' .
+							'<td>' . $donnees['purchaseReduction'] . '</td>' .
+							'<td>' . $donnees['purchasePostalCharges'] . '</td>' .
+							'<td>' . $donnees['purchaseTotalprice'] . '</td>' .
+							'<td>' . $donnees['purchaseTaxes'] . '</td>' .
+							'<td>' . $donnees['purchaseDeliveryAddress'] . '</td>' .
+							'<td>' . $donnees['purchaseBillingAddress'] . '</td>' .
+							'<td>' . $donnees['purchaseDate'] . '</td></tr>';
 						}
 					?>
 
