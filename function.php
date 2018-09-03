@@ -90,7 +90,7 @@ of "1"*/
 ?>
 							<td>
 									<a href="client_modify.php?id=<?php echo $datas['customerId'];?>" name='modify'>Modifier</a>
-									<a href="client_delete.php?id=<?php echo $datas['customerId'];?>" name='delete'>Delete</a>
+									<a href="client_delete.php?id=<?php echo $datas['customerId'];?>" name='delete'>Supprimer</a>
 							</td>
 						</tr>
 						<?php
