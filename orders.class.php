@@ -13,7 +13,7 @@
 		public $shippingAddress;
 		public $billingAddress;
 		public $date;
-	}
+	
 
 	public function __construct($customers, $products, $quantity, $price, $reduction, $shippingCosts, $totalPrice, $VAT, $shippingAddress, $billingAddress, $date)
 	{
@@ -111,5 +111,7 @@
         return $req;
 
     }
+
+}
 
  ?>

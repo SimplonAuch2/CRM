@@ -11,7 +11,7 @@
 		public $size;
 		public $weight;
 		public $reference;
-	}
+	
 
 	// function pour creer un nouveau produit
 	public function __construct($name, $price, $stock, $place, $description, $size, $weight, $reference)
@@ -99,5 +99,6 @@
         return $req;
 
     }
-
+    
+}
  ?>

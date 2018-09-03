@@ -46,18 +46,6 @@
 			echo '</table>';	
 	}
 
-	//gets the customers of the current trader
-	//not working yet
-	function idTrader()
-	{
-		session_start();
-		require 'connect.php';
-		$req = $db->prepare('SELECT * FROM customer WHERE fk_user = userId');
-		$req->execute(array(
-		    'userId' => $_SESSION['userId']
-		)); 
-	}
-
 	//display the customers of the trader
 	function displayClientSeller($db)
 	{
@@ -81,9 +69,11 @@
 						</form>
 					</tr>";
 			// we display every rows from the table in the table, 1 by 1
-			$responses = $db->query('SELECT * FROM customer WHERE fkUser = userId');/*put the id of the user instead of "1"*/ 
+			$responses = $db->query('SELECT * FROM customer WHERE fkUser = ' . $_SESSION['userId'] . ' AND customerStatus = 1');/*put the id of the user instead
+of "1"*/
 			while($datas=$responses->fetch())
 			{
+				
 				echo
 						"<tr>
 							<td>" . $datas['customerLastName'] . "</td>
@@ -96,20 +86,62 @@
 							<td>" . $datas['customerRegistrationDate'] . "</td>
 							<td>" . $datas['customerGender'] . "</td>
 							<td>" . $datas['customerEmail'] . "</td>
-							<td>" . $datas['customerCountry'] . "</td>
-							<form method='POST'>
-								<td>
-									<button name='modify' type='submit'>Modifier</button>
-									<button name='delete' type='submit'>Delete</button>
-									<input class='hidden' name='customerId' value='" . $datas['customerId'] . "'>
-								</td>
-							</form>
-						</tr>";
+							<td>" . $datas['customerCountry'] . "</td>"
+?>
+							<td>
+									<a href="client_modify.php?id=<?php echo $datas['customerId'];?>" name='modify'>Modifier</a>
+									<a href="client_delete.php?id=<?php echo $datas['customerId'];?>" name='delete'>Supprimer</a>
+							</td>
+						</tr>
+						<?php
 			}
 
 			echo '</table>';
 
 	}
 
+	function displayClientModif($id, $db){
+		$responses = $db->query('SELECT * FROM customer WHERE customerId = ' . $id);/*put the id of the
+user
+		instead
+		of "1"*/
+		while($datas=$responses->fetch())
+		{
 
- ?>
+		echo
+		"<form method='post'>
+			<label>Nom</label>
+			<input name='lastName' value=" . $datas['customerLastName'] . ">
+			<label>Prénom</label>
+			<input name='firstName' value=". $datas['customerFirstName'] . ">
+			<label>Ville</label>
+			<input name='city' value=" . $datas['customerCity'] . ">
+			<label>Adresse</label>
+			<input name='address' value=" . $datas['customerAdress'] . ">
+			<label>Code postal</label>
+			<input name='zipCode' value=" . $datas['customerZipCode'] . ">
+			<label>Tel</label>
+			<input name='phoneNumber' value=" . $datas['customerPhoneNumber'] . ">
+			<label>Email</label>
+			<input name='email' value=" . $datas['customerEmail'] . ">
+			<label>Pays</label>
+			<input name='country' value=" . $datas['customerCountry'] . ">
+			<label>Numéro commercial</label>
+			<input name='fkUser' value=" . $datas['fkUser'] . ">
+			<button name='retour'>Retour</button>
+			<button type='submit' name='valider'>Valider</button>
+		</form>";
+		}
+	}
+
+	function modifyClient($db, $id, $lastName, $firstName, $city, $address, $zipCode, $phoneNumber, $email, $country, $fkUser){
+
+		$req = $db->query("UPDATE customer SET customerLastName='" . $lastName . "',customerFirstName='" .
+			$firstName . "',customerCity='" . $city . "',customerAdress='" . $address . 
+			"',customerZipCode='" . $zipCode . "',customerPhoneNumber='" . $phoneNumber . "', customerEmail='" .
+			$email . "',customerCountry='" . $country . "',fkUser=" . $fkUser . " WHERE customerId = ". $id);
+
+		return $req;
+
+	}
+?>
