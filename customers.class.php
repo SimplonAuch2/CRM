@@ -31,7 +31,7 @@
 		function getcustomerOrderByAsc($orderBy)
 		{
 
-           	$customers = $bdd->query('SELECT * FROM customer ORDER BY '.$orderBy.' ASC');
+           	$customers = $db->query('SELECT * FROM customer ORDER BY '.$orderBy.' ASC');
 
         	return $customers;
 
@@ -41,7 +41,7 @@
 		function getcustomerOrderByDesc($orderBy)
 		{
 
-            $customers = $bdd->query('SELECT * FROM customers ORDER BY '.$orderBy.' DESC');
+            $customers = $db->query('SELECT * FROM customer ORDER BY '.$orderBy.' DESC');
 
             return $customers;
 			
@@ -52,7 +52,7 @@
 
         {
 
-            $req = $bdd->prepare('INSERT INTO customers (customer_name,customer_firstname,customer_birthday,customer_city,customer_adress,customer_zipCode,customer_phoneNumber,customer_registrationDate,customer_gender,customer_email,customer_country)
+            $req = $db->prepare('INSERT INTO customers (customer_name,customer_firstname,customer_birthday,customer_city,customer_adress,customer_zipCode,customer_phoneNumber,customer_registrationDate,customer_gender,customer_email,customer_country)
 
             VALUES (:customer_name,:customer_firstname,:customer_birthday,:customer_city,:customer_adress,:customer_zipCode,:customer_phoneNumber,:customer_registrationDate,:customer_gender,:customer_email,:customer_country)');
 
@@ -90,21 +90,21 @@
          function updatecustomer($customer_name,$customer_firstname,$customer_birthday,$customer_city,$customer_adress,$customer_zipCode,$customer_phoneNumber,$customer_registrationDate,$customer_gender,$customer_email,$customer_country)
         {
             
-            $req = $bdd->query("UPDATE Order SET customer_name='$customer_name',customer_firstname='$customer_firstname',customer_birthday,='$customer_birthday',customer_city='$customer_city',customer_adress='$customer_adress',customer_phoneNumber='$customer_phoneNumber',customer_registrationDate='$customer_registrationDate',customer_gender='$customer_gender',customer_email='$customer_email',customer_country='$customer_country'");
+            $req = $db->query("UPDATE Order SET customer_name='$customer_name',customer_firstname='$customer_firstname',customer_birthday,='$customer_birthday',customer_city='$customer_city',customer_adress='$customer_adress',customer_phoneNumber='$customer_phoneNumber',customer_registrationDate='$customer_registrationDate',customer_gender='$customer_gender',customer_email='$customer_email',customer_country='$customer_country'");
 
             return $req;
 
         }
 
-        // function retirer en cour de traitement
-        // function cancelProduct($product_id)
-        // {
+        // Supprime un client
+         function cancelCustomer($customerId)
+         {
 
-        //     $req = $bdd->query('UPDATE products SET product_state = "Retiré" WHERE product_id ='.$product_id);
+             $req = $db->query('UPDATE customer SET customerStatus = "Retiré" WHERE customerId ='.$customerId);
 
-        //     return $req;
+             return $req;
 
-        // }
+        }
 
 	}
 

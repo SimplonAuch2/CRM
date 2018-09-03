@@ -51,14 +51,7 @@
 	function idTrader()
 	{
 		session_start();
-		try 
-		{
-			$bdd = new PDO('mysql:host=localhost;dbname=CRM;charset=utf8', 'annie', '12345678');
-		} 
-		catch (Exception $e) 
-		{
-			die('Erreur : ' . $e->getMessage());
-		}
+		require 'connect.php';
 		$req = $db->prepare('SELECT * FROM customer WHERE fk_user = userId');
 		$req->execute(array(
 		    'userId' => $_SESSION['userId']
@@ -88,7 +81,7 @@
 						</form>
 					</tr>";
 			// we display every rows from the table in the table, 1 by 1
-			$responses = $db->query('SELECT * FROM customer WHERE fkUser = ' . 2/*put the id of the user instead of "1"*/ );
+			$responses = $db->query('SELECT * FROM customer WHERE fkUser = userId');/*put the id of the user instead of "1"*/ 
 			while($datas=$responses->fetch())
 			{
 				echo

@@ -1,45 +1,44 @@
 <!DOCTYPE html>
 <html lang="fr">
-	<head>
-		<title>index</title>
-		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="style.css">
-	</head>
-	<body>
-		<?php 
+<head>
+	<title>index</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" type="text/css" href="style_index.css">
+</head>
+<body>
+
+	<div class="page">
+
+		<div id="divConnexion">
+
+			<form method="POST" id="formConnexion">
+
+				<div>
+					<h3>Connexion</h3>
+				</div>
+
+				<div id="inputUser">
+					<input id="userName" type="text" name="userName" placeholder="Login...">
+				</div>
+
+				<div id="inputPassword">
+					<input id="userPassword" type="password" name="userPassword" placeholder="Password...">
+				</div>
+
+				<div id="inputSubmit">
+					<input id="userSubmit" type="submit" name="userSubmit" value="Se connecter">
+				</div>
+
+			</form>
+
+			<?php 
 			require("authentification.php");
-		?>
-
-		<div class="page">
-
-			<div id="divConnexion">
-
-				<form method="POST" id="formConnexion">
-
-					<div>
-						<h3>CONNEXION</h3>
-					</div>
-
-					<div id="inputUser">
-						<label for="userName">Utilisateur</label><br>
-						<input type="text" name="userName"><br><br>
-					</div>
-
-					<div id="inputPassword">
-						<label for="userassword">Mot de passe</label><br>
-						<input type="password" name="userPassword"><br><br>
-					</div>
-
-					<div id="inputSubmit">
-						<label for="userSubmit"></label><br>
-						<input type="submit" name="userSubmit"><br><br>
-					</div>
-
-				</form>
-
-			</div>
+			?>
 
 		</div>
 
-	</body>
+	</div>
+
+</body>
 </html>
