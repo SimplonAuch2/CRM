@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 03, 2018 at 09:29 AM
+-- Generation Time: Sep 03, 2018 at 11:45 AM
 -- Server version: 5.7.23-0ubuntu0.18.04.1
 -- PHP Version: 7.2.7-0ubuntu0.18.04.2
 
@@ -65,7 +65,8 @@ CREATE TABLE `diary` (
   `diaryCustomer` varchar(255) NOT NULL,
   `diaryTime` time NOT NULL,
   `diaryText` text NOT NULL,
-  `diaryDate` datetime NOT NULL
+  `diaryDate` datetime NOT NULL,
+  `fkUser` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -139,8 +140,7 @@ CREATE TABLE `user` (
   `userId` int(11) NOT NULL,
   `userLogin` varchar(255) NOT NULL,
   `userPassword` varchar(255) NOT NULL,
-  `userStatus` tinyint(1) NOT NULL,
-  `fkDiary` int(11) NOT NULL
+  `userStatus` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -166,7 +166,8 @@ ALTER TABLE `customer_purchase`
 -- Indexes for table `diary`
 --
 ALTER TABLE `diary`
-  ADD PRIMARY KEY (`diaryId`);
+  ADD PRIMARY KEY (`diaryId`),
+  ADD KEY `fkUser` (`fkUser`);
 
 --
 -- Indexes for table `product`
@@ -192,8 +193,7 @@ ALTER TABLE `purchase`
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`userId`),
-  ADD UNIQUE KEY `Trader_diary_AK` (`fkDiary`);
+  ADD PRIMARY KEY (`userId`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -242,17 +242,17 @@ ALTER TABLE `customer_purchase`
   ADD CONSTRAINT `customer_purchase_ibfk_2` FOREIGN KEY (`fkPurchase`) REFERENCES `purchase` (`purchaseId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
+-- Constraints for table `diary`
+--
+ALTER TABLE `diary`
+  ADD CONSTRAINT `diary_ibfk_1` FOREIGN KEY (`fkUser`) REFERENCES `user` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Constraints for table `product_purchase`
 --
 ALTER TABLE `product_purchase`
   ADD CONSTRAINT `edit_Orders_FK` FOREIGN KEY (`fkPurchase`) REFERENCES `purchase` (`purchaseId`),
   ADD CONSTRAINT `edit_products0_FK` FOREIGN KEY (`fkProduct`) REFERENCES `product` (`productId`);
-
---
--- Constraints for table `user`
---
-ALTER TABLE `user`
-  ADD CONSTRAINT `Trader_diary0_FK` FOREIGN KEY (`fkDiary`) REFERENCES `diary` (`diaryId`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
