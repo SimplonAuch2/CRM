@@ -2,10 +2,10 @@
 -- version 4.6.6deb5
 -- https://www.phpmyadmin.net/
 --
--- Client :  localhost
--- Généré le :  Ven 31 Août 2018 à 13:38
--- Version du serveur :  5.7.23-0ubuntu0.18.04.1
--- Version de PHP :  7.2.7-0ubuntu0.18.04.2
+-- Host: localhost
+-- Generation Time: Sep 03, 2018 at 09:29 AM
+-- Server version: 5.7.23-0ubuntu0.18.04.1
+-- PHP Version: 7.2.7-0ubuntu0.18.04.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `crmV2`
+-- Database: `CRM`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `customer`
+-- Table structure for table `customer`
 --
 
 CREATE TABLE `customer` (
@@ -46,7 +46,18 @@ CREATE TABLE `customer` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `diary`
+-- Table structure for table `customer_purchase`
+--
+
+CREATE TABLE `customer_purchase` (
+  `fkCustomer` int(11) NOT NULL,
+  `fkPurchase` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `diary`
 --
 
 CREATE TABLE `diary` (
@@ -60,18 +71,7 @@ CREATE TABLE `diary` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `edit`
---
-
-CREATE TABLE `edit` (
-  `orderId` int(11) NOT NULL,
-  `fkProduct` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `product`
+-- Table structure for table `product`
 --
 
 CREATE TABLE `product` (
@@ -88,7 +88,7 @@ CREATE TABLE `product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `product`
+-- Dumping data for table `product`
 --
 
 INSERT INTO `product` (`productId`, `productName`, `productPrice`, `productStock`, `productPlace`, `productDescription`, `productSize`, `productWeight`, `productReference`, `productStatus`) VALUES
@@ -97,7 +97,18 @@ INSERT INTO `product` (`productId`, `productName`, `productPrice`, `productStock
 -- --------------------------------------------------------
 
 --
--- Structure de la table `purchase`
+-- Table structure for table `product_purchase`
+--
+
+CREATE TABLE `product_purchase` (
+  `fkPurchase` int(11) NOT NULL,
+  `fkProduct` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `purchase`
 --
 
 CREATE TABLE `purchase` (
@@ -115,14 +126,13 @@ CREATE TABLE `purchase` (
   `purchaseState` varchar(255) NOT NULL,
   `purchaseDeliveryDate` date NOT NULL,
   `purchaseNameCustomer` varchar(400) NOT NULL,
-  `purchaseStatus` tinyint(1) NOT NULL,
-  `fkCustomer` int(11) NOT NULL
+  `purchaseStatus` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -134,103 +144,112 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Index pour les tables exportées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `customer`
+-- Indexes for table `customer`
 --
 ALTER TABLE `customer`
   ADD PRIMARY KEY (`customerId`),
   ADD KEY `fkUser` (`fkUser`);
 
 --
--- Index pour la table `diary`
+-- Indexes for table `customer_purchase`
+--
+ALTER TABLE `customer_purchase`
+  ADD PRIMARY KEY (`fkCustomer`,`fkPurchase`),
+  ADD KEY `fk_customer` (`fkCustomer`),
+  ADD KEY `fk_purchase` (`fkPurchase`);
+
+--
+-- Indexes for table `diary`
 --
 ALTER TABLE `diary`
   ADD PRIMARY KEY (`diaryId`);
 
 --
--- Index pour la table `edit`
---
-ALTER TABLE `edit`
-  ADD PRIMARY KEY (`orderId`,`fkProduct`),
-  ADD KEY `edit_products0_FK` (`fkProduct`);
-
---
--- Index pour la table `product`
+-- Indexes for table `product`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`productId`);
 
 --
--- Index pour la table `purchase`
+-- Indexes for table `product_purchase`
 --
-ALTER TABLE `purchase`
-  ADD PRIMARY KEY (`purchaseId`),
-  ADD KEY `Orders_customers_FK` (`fkCustomer`);
+ALTER TABLE `product_purchase`
+  ADD PRIMARY KEY (`fkPurchase`,`fkProduct`),
+  ADD KEY `edit_products0_FK` (`fkProduct`),
+  ADD KEY `fk_purchase` (`fkPurchase`);
 
 --
--- Index pour la table `user`
+-- Indexes for table `purchase`
+--
+ALTER TABLE `purchase`
+  ADD PRIMARY KEY (`purchaseId`);
+
+--
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`userId`),
   ADD UNIQUE KEY `Trader_diary_AK` (`fkDiary`);
 
 --
--- AUTO_INCREMENT pour les tables exportées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `customer`
+-- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
   MODIFY `customerId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT pour la table `diary`
+-- AUTO_INCREMENT for table `diary`
 --
 ALTER TABLE `diary`
   MODIFY `diaryId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT pour la table `product`
+-- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
   MODIFY `productId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT pour la table `purchase`
+-- AUTO_INCREMENT for table `purchase`
 --
 ALTER TABLE `purchase`
   MODIFY `purchaseId` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT pour la table `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- Contraintes pour les tables exportées
+-- Constraints for dumped tables
 --
 
 --
--- Contraintes pour la table `customer`
+-- Constraints for table `customer`
 --
 ALTER TABLE `customer`
   ADD CONSTRAINT `customer_ibfk_1` FOREIGN KEY (`fkUser`) REFERENCES `user` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `edit`
+-- Constraints for table `customer_purchase`
 --
-ALTER TABLE `edit`
-  ADD CONSTRAINT `edit_Orders_FK` FOREIGN KEY (`orderId`) REFERENCES `purchase` (`purchaseId`),
+ALTER TABLE `customer_purchase`
+  ADD CONSTRAINT `customer_purchase_ibfk_1` FOREIGN KEY (`fkCustomer`) REFERENCES `customer` (`customerId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `customer_purchase_ibfk_2` FOREIGN KEY (`fkPurchase`) REFERENCES `purchase` (`purchaseId`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `product_purchase`
+--
+ALTER TABLE `product_purchase`
+  ADD CONSTRAINT `edit_Orders_FK` FOREIGN KEY (`fkPurchase`) REFERENCES `purchase` (`purchaseId`),
   ADD CONSTRAINT `edit_products0_FK` FOREIGN KEY (`fkProduct`) REFERENCES `product` (`productId`);
 
 --
--- Contraintes pour la table `purchase`
---
-ALTER TABLE `purchase`
-  ADD CONSTRAINT `Orders_customers_FK` FOREIGN KEY (`fkCustomer`) REFERENCES `customer` (`customerId`);
-
---
--- Contraintes pour la table `user`
+-- Constraints for table `user`
 --
 ALTER TABLE `user`
   ADD CONSTRAINT `Trader_diary0_FK` FOREIGN KEY (`fkDiary`) REFERENCES `diary` (`diaryId`);
