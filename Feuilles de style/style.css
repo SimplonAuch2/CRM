@@ -4,19 +4,6 @@
 	padding:0;
 }
 
-.formCustomer
-{
-	display:flex;
-	position:absolute;
-	left:600px;
-}
-
-
-.titreForm
-{
-	text-align: center;
-}
-
 .hidden
 {
 	display: none;

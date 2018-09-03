@@ -1,4 +1,7 @@
 <?php
+//nettoie les sessions
+  session_start();
+  $_SESSION = array();
 
 // When activating the "Send" button on the login form, we retrieve the input data
 

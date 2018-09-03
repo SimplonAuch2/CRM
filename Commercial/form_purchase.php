@@ -1,6 +1,6 @@
 <?php
 	if($_SESSION['userStatus'] == null){
-		header('Location: index.php');
+		header('Location: ../index.php');
 	}
 ?>
 

@@ -144,4 +144,30 @@ user
 		return $req;
 
 	}
+
+	function addClient($db, $lastName, $firstName, $city, $address, $zipCode, $phoneNumber, $email, $country,$birthday, $gender, $fkUser){
+
+		$req = $db->prepare('INSERT INTO customer (customerLastName, customerFirstName, customerBirthday, customerCity, customerAdress, customerZipCode, customerPhoneNumber, customerGender, customerEmail, customerCountry, customerStatus, fkUser)
+
+		VALUES (:customer_name, :customer_firstname, :customer_birthday, :customer_city, :customer_adress, :customer_zipCode, :customer_phoneNumber, :customer_gender, :customer_email, :customer_country, :customer_status, :customer_seller)');
+
+		$req->execute(array(
+
+		':customer_name' => $lastName,
+		':customer_firstname' => $firstName,
+		':customer_birthday' => $birthday,
+		':customer_city' => $city,
+		':customer_adress' => $address,
+		':customer_zipCode' => $zipCode,
+		':customer_phoneNumber' => $phoneNumber,
+		':customer_gender' => $gender,
+		':customer_email' => $email,
+		':customer_country' => $country,
+		'customer_status' => 1,
+		':customer_seller' => $fkUser
+
+		));
+
+		return $req;
+	}
 ?>

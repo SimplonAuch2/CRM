@@ -20,21 +20,21 @@
 		<li>
 			<a href="#">Clients<div class="triangle-down"></div></a>
 			<ul class="sousMenu">
-				<li><a href="#">Ajouter un Client</a></li>
-				<li><a href="#">Liste des clients</a></li>
+				<li><a href="form_client.php">Ajouter un Client</a></li>
+				<li><a href="client_seller.php">Liste des clients</a></li>
 			</ul>
 		</li>
 		<li>
 			<a href="#">Produits<div class="triangle-down"></div></a>
 			<ul class="sousMenu">
-				<li><a href="#">Liste des Produits</a></li>
+				<li><a href="product_seller.php">Liste des Produits</a></li>
 			</ul>
 		</li>
 		<li>
 			<a href="#">Commandes<div class="triangle-down"></div></a>
 			<ul class="sousMenu">
 				<li><a href="#">Ajouter une commande</a></li>
-				<li><a href="#">Voir les commandes</a></li>
+				<li><a href="purchase_seller.php">Voir les commandes</a></li>
 			</ul>
 		</li>
 		<li>
@@ -42,8 +42,7 @@
 			<ul class="sousMenu"></ul>
 		</li>
 		<li>
-			<a href="#">Déconnexion</a>
-			<ul class="sousMenu"></ul>
+			<a href="../index.php" name="destroy">Déconnexion</a>
 		</li>
 	</ul>
 </body>

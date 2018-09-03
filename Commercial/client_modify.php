@@ -2,10 +2,10 @@
     ini_set('display_errors', 1);
     session_start();
     if ($_SESSION['userStatus'] != false) {
-        header('Location: client_manager.php');
+        header('Location: ../Directeur/client_manager.php');
     }
     if($_SESSION['userStatus'] == null){
-        header('Location: index.php');
+        header('Location: ../index.php');
     }
 
 ?>
