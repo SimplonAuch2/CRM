@@ -56,207 +56,278 @@ if($_SESSION['userStatus'] == null){
         		return $customers;
 			}
 
-			if(isset($POST_['sortName']))
+			function displayTableHeader()
+			{
+				echo
+				"<table id='displayCustomers'>
+					<tr>
+						<form method='POST'>
+							<th><button name='sortLastName' type='submit'>Nom</button></th>
+							<th><button name='sortFirstName' type='submit'>Prénom</button></th>
+							<th><button name='sortBirthday' type='submit'>Date de naissance</button></th>
+							<th><button name='sortCity' type='submit'>Ville</button></th>
+							<th><button name='sortAdress' type='submit'>Adresse</button></th>
+							<th><button name='sortZipCode' type='submit'>Code postal</button></th>
+							<th><button name='sortTel' type='submit'>Tél</button></th>
+							<th><button name='sortRegistrationDate' type='submit'>Date 
+							d'enregistrement</button></th>
+							<th><button name='sortGender' type='submit'>Genre</button></th>
+							<th><button name='sortEmail' type='submit'>Email</button></th>
+							<th><button name='sortCountry' type='submit'>Pays</button></th>
+						</form>
+					</tr>";
+			}
+
+			function loop($responses)
+			{
+				$responses = $db->query('SELECT * FROM customer');
+				while($datas=$responses->fetch())
+				{
+					echo
+						"<tr>
+							<td>" . $datas['customerLastName'] . "</td>
+							<td>" . $datas['customerFirstName'] . "</td>
+							<td>" . $datas['customerBirthday'] . "</td>
+							<td>" . $datas['customerCity'] . "</td>
+							<td>" . $datas['customerAdress'] . "</td>
+							<td>" . $datas['customerZipCode'] . "</td>
+							<td>" . $datas['customerPhoneNumber'] . "</td>
+							<td>" . $datas['customerRegistrationDate'] . "</td>
+							<td>" . $datas['customerGender'] . "</td>
+							<td>" . $datas['customerEmail'] . "</td>
+							<td>" . $datas['customerCountry'] . "</td>
+						</tr>";
+				}
+			}
+
+			if(isset($POST_['sortLastName']))
 			{
 				$sortLastName++;
 				if($sortLastName == 1)
 				{
 					$orderBy = "customerLastName";
-					sortByASC($orderBy);	
+					$responses = sortByASC($orderBy);
+					displayTableHeader();
+					loop($responses);
 				}
 
 				if($sortLastName == 2)
 				{
 					$orderBy = "customerLastName";
-					sortByDESC($orderBy);
+					$responses = sortByDESC($orderBy);
+					displayTableHeader();
+					loop($responses);
 					$sortLastName = 0;
 				}
 			}
 
-			if(isset($POST_['sortName']))
+			if(isset($POST_['sortFirstName']))
 			{
 				$sortFirstName++;
 				if($sortFirstName == 1)
 				{
 					$orderBy = "customerFirstName";
-					sortByASC($orderBy);	
+					$responses = sortByASC($orderBy);
+					displayTableHeader();
+					loop($responses);	
 				}
 
 				if($sortFirstName == 2)
 				{
 					$orderBy = "customerFirstName";
-					sortByDESC($orderBy);
+					$responses = sortByDESC($orderBy);
+					displayTableHeader();
+					loop($responses);
 					$sortFirstName = 0;
 				}
 			}
 
-			if(isset($POST_['sortName']))
+			if(isset($POST_['sortBirthday']))
 			{
 				$sortBirthday++;
 				if($sortBirthday == 1)
 				{
 					$orderBy = "customerBirthday";
-					sortByASC($orderBy);	
+					$responses = sortByASC($orderBy);
+					displayTableHeader();
+					loop($responses);	
 				}
 
 				if($sortBirthday == 2)
 				{
 					$orderBy = "customerBirthday";
-					sortByDESC($orderBy);
+					$responses = sortByDESC($orderBy);
+					displayTableHeader();
+					loop($responses);
 					$sortBirthday = 0;
 				}
 			}
 
-			if(isset($POST_['sortName']))
+			if(isset($POST_['sortCity']))
 			{
 				$sortCity++;
 				if($sortCity == 1)
 				{
 					$orderBy = "customerCity";
-					sortByASC($orderBy);	
+					$responses = sortByASC($orderBy);	
+					displayTableHeader();
+					loop($responses);
 				}
 
 				if($sortCity == 2)
 				{
 					$orderBy = "customerCity";
-					sortByDESC($orderBy);
+					$responses = sortByDESC($orderBy);
+					displayTableHeader();
+					loop($responses);
 					$sortCity = 0;
 				}
 			}
 
-			if(isset($POST_['sortName']))
+			if(isset($POST_['sortAdress']))
 			{
 				$sortAdress++;
 				if($sortAdress == 1)
 				{
 					$orderBy = "customerAdress";
-					sortByASC($orderBy);	
+					$responses = sortByASC($orderBy);
+					displayTableHeader();
+					loop($responses);	
 				}
 
 				if($sortAdress == 2)
 				{
 					$orderBy = "customerAdress";
-					sortByDESC($orderBy);
+					$responses = sortByDESC($orderBy);
+					displayTableHeader();
+					loop($responses);
 					$sortAdress = 0;
 				}
 			}
 
-			if(isset($POST_['sortName']))
+			if(isset($POST_['sortZipCode']))
 			{
 				$sortZipCode++;
 				if($sortZipCode == 1)
 				{
 					$orderBy = "customerZipCode";
-					sortByASC($orderBy);	
+					$responses = sortByASC($orderBy);
+					displayTableHeader();
+					loop($responses);	
 				}
 
 				if($sortZipCode == 2)
 				{
 					$orderBy = "customerZipCode";
-					sortByDESC($orderBy);
+					$responses = sortByDESC($orderBy);
+					displayTableHeader();
+					loop($responses);
 					$sortZipCode = 0;
 				}
 			}
 
-			if(isset($POST_['sortName']))
+			if(isset($POST_['sortPhoneNumber']))
 			{
 				$sortPhoneNumber++;
 				if($sortPhoneNumber == 1)
 				{
 					$orderBy = "customerPhoneNumber";
-					sortByASC($orderBy);	
+					$responses = sortByASC($orderBy);
+					displayTableHeader();
+					loop($responses);	
 				}
 
 				if($sortPhoneNumber == 2)
 				{
 					$orderBy = "customerPhoneNumber";
-					sortByDESC($orderBy);
+					$responses = sortByDESC($orderBy);
+					displayTableHeader();
+					loop($responses);
 					$sortPhoneNumber = 0;
 				}
 			}
 
-			if(isset($POST_['sortName']))
+			if(isset($POST_['sortRegistrationDate']))
 			{
 				$sortRegistrationDate++;
 				if($sortRegistrationDate == 1)
 				{
 					$orderBy = "customerRegistrationDate";
-					sortByASC($orderBy);	
+					$responses = sortByASC($orderBy);
+					displayTableHeader();
+					loop($responses);	
 				}
 
 				if($sortRegistrationDate == 2)
 				{
 					$orderBy = "customerRegistrationDate";
-					sortByDESC($orderBy);
+					$responses = sortByDESC($orderBy);
+					displayTableHeader();
+					loop($responses);
 					$sortRegistrationDate = 0;
 				}
 			}
 
-			if(isset($POST_['sortName']))
+			if(isset($POST_['sortGender']))
 			{
 				$sortGender++;
 				if($sortGender == 1)
 				{
 					$orderBy = "customerGender";
-					sortByASC($orderBy);	
+					$responses = sortByASC($orderBy);
+					displayTableHeader();
+					loop($responses);	
 				}
 
 				if($sortGender == 2)
 				{
 					$orderBy = "customerGender";
-					sortByDESC($orderBy);
+					$responses = sortByDESC($orderBy);
+					displayTableHeader();
+					loop($responses);
 					$sortGender = 0;
 				}
 			}
 
-			if(isset($POST_['sortName']))
+			if(isset($POST_['sortEmail']))
 			{
 				$sortEmail++;
 				if($sortEmail == 1)
 				{
 					$orderBy = "customerEmail";
-					sortByASC($orderBy);	
+					$responses = sortByASC($orderBy);
+					displayTableHeader();
+					loop($responses);	
 				}
 
 				if($sortEmail == 2)
 				{
 					$orderBy = "customerEmail";
-					sortByDESC($orderBy);
+					$responses = sortByDESC($orderBy);
+					displayTableHeader();
+					loop($responses);
 					$sortEmail = 0;
 				}
 			}
 
-			if(isset($POST_['sortName']))
+			if(isset($POST_['sortCountry']))
 			{
 				$sortCountry++;
 				if($sortCountry == 1)
 				{
 					$orderBy = "customerCountry";
-					sortByASC($orderBy);	
+					$responses = sortByASC($orderBy);
+					displayTableHeader();
+					loop($responses);	
 				}
 
 				if($sortCountry == 2)
 				{
 					$orderBy = "customerCountry";
-					sortByDESC($orderBy);
+					$responses = sortByDESC($orderBy);
+					displayTableHeader();
+					loop($responses);
 					$sortCountry = 0;
-				}
-			}
-
-			if(isset($POST_['sortName']))
-			{
-				$sortStatus++;
-				if($sortStatus == 1)
-				{
-					$orderBy = "customerStatus";
-					sortByASC($orderBy);	
-				}
-
-				if($sortStatus == 2)
-				{
-					$orderBy = "customerStatus";
-					sortByDESC($orderBy);
-					$sortStatus = 0;
 				}
 			}
 
