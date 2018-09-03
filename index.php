@@ -4,7 +4,7 @@
 	<title>index</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<link rel="stylesheet" type="text/css" href="style_index.css">
+	<link rel="stylesheet" type="text/css" href="Feuilles de style/style_index.css">
 </head>
 <body>
 

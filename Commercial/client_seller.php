@@ -1,4 +1,5 @@
 <?php
+ini_set('display_errors', 1);
 	session_start();
 	if ($_SESSION['userStatus'] != false) {
 		header('Location: client_manager.php');
@@ -14,15 +15,15 @@
 	<head>
 		<meta charset="utf-8">
 		<title>client seller</title>
-		<link rel="stylesheet" type="text/css" href="style.css">
-		<link rel="stylesheet" type="text/css" href="crm.css">
+		<link rel="stylesheet" type="text/css" href="../Feuilles de style/style.css">
+		<link rel="stylesheet" type="text/css" href="../Feuilles de style/crm.css">
 	</head>
 	<body>
-
 		<?php
-			require("function.php"); 
+			require("NavCommercial.php");
 			// connection to the database
-			require 'connect.php';
+			require '../BDD/connect.php';
+			require("../function.php"); 
 
 			// $responses get all the informations contained in the table "customers"
 			displayClientSeller($db);

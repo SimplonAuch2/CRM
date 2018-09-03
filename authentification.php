@@ -10,7 +10,7 @@ if (isset($_POST['userSubmit'])==true)
 
     // connection to the database
 
-    require 'connect.php';
+    require 'BDD/connect.php';
 
 
     // Compare the filled user name with the user names stored in the database
@@ -42,7 +42,7 @@ if (isset($_POST['userSubmit'])==true)
           $_SESSION['userPassword'] = $userPassword;              /* true = Directeur  */
           $_SESSION['userStatus'] = $result['userStatus'];       /*   false = Commerciaux */
           $_SESSION['userId'] = $result['userId'];
-          header('Location: client_manager.php');
+          header('Location: Directeur/client_manager.php');
         }
         else
         {
@@ -51,7 +51,7 @@ if (isset($_POST['userSubmit'])==true)
           $_SESSION['userPassword'] = $userPassword;
           $_SESSION['userStatus'] = $result['userStatus'];
           $_SESSION['userId'] = $result['userId'];
-          header('Location: client_seller.php');
+          header('Location: Commercial/client_seller.php');
         }
       }
       else 
