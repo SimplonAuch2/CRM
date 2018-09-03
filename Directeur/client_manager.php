@@ -44,19 +44,31 @@ if($_SESSION['userStatus'] == null){
 			$sortCountry = 0;
 			$sortStatus = 0;
 
+			function sortByASC($orderBy)
+			{
+				$customers = $db->query('SELECT * FROM customer ORDER BY '.$orderBy.' ASC');
+        		return $customers;
+			}
+
+			function sortByDESC($orderBy)
+			{
+				$customers = $db->query('SELECT * FROM customer ORDER BY '.$orderBy.' DESC');
+        		return $customers;
+			}
+
 			if(isset($POST_['sortName']))
 			{
 				$sortLastName++;
 				if($sortLastName == 1)
 				{
 					$orderBy = "customerLastName";
-					getcustomerOrderByAsc($orderBy);	
+					sortByASC($orderBy);	
 				}
 
 				if($sortLastName == 2)
 				{
 					$orderBy = "customerLastName";
-					getcustomerOrderByDesc($orderBy);
+					sortByDESC($orderBy);
 					$sortLastName = 0;
 				}
 			}
@@ -67,13 +79,13 @@ if($_SESSION['userStatus'] == null){
 				if($sortFirstName == 1)
 				{
 					$orderBy = "customerFirstName";
-					getcustomerOrderByAsc($orderBy);	
+					sortByASC($orderBy);	
 				}
 
 				if($sortFirstName == 2)
 				{
 					$orderBy = "customerFirstName";
-					getcustomerOrderByDesc($orderBy);
+					sortByDESC($orderBy);
 					$sortFirstName = 0;
 				}
 			}
@@ -83,14 +95,14 @@ if($_SESSION['userStatus'] == null){
 				$sortBirthday++;
 				if($sortBirthday == 1)
 				{
-					$orderBy = "customerLastName";
-					getcustomerOrderByAsc($orderBy);	
+					$orderBy = "customerBirthday";
+					sortByASC($orderBy);	
 				}
 
 				if($sortBirthday == 2)
 				{
-					$orderBy = "customerLastName";
-					getcustomerOrderByDesc($orderBy);
+					$orderBy = "customerBirthday";
+					sortByDESC($orderBy);
 					$sortBirthday = 0;
 				}
 			}
@@ -100,14 +112,14 @@ if($_SESSION['userStatus'] == null){
 				$sortCity++;
 				if($sortCity == 1)
 				{
-					$orderBy = "customerLastName";
-					getcustomerOrderByAsc($orderBy);	
+					$orderBy = "customerCity";
+					sortByASC($orderBy);	
 				}
 
 				if($sortCity == 2)
 				{
-					$orderBy = "customerLastName";
-					getcustomerOrderByDesc($orderBy);
+					$orderBy = "customerCity";
+					sortByDESC($orderBy);
 					$sortCity = 0;
 				}
 			}
@@ -117,14 +129,14 @@ if($_SESSION['userStatus'] == null){
 				$sortAdress++;
 				if($sortAdress == 1)
 				{
-					$orderBy = "customerLastName";
-					getcustomerOrderByAsc($orderBy);	
+					$orderBy = "customerAdress";
+					sortByASC($orderBy);	
 				}
 
 				if($sortAdress == 2)
 				{
-					$orderBy = "customerLastName";
-					getcustomerOrderByDesc($orderBy);
+					$orderBy = "customerAdress";
+					sortByDESC($orderBy);
 					$sortAdress = 0;
 				}
 			}
@@ -134,14 +146,14 @@ if($_SESSION['userStatus'] == null){
 				$sortZipCode++;
 				if($sortZipCode == 1)
 				{
-					$orderBy = "customerLastName";
-					getcustomerOrderByAsc($orderBy);	
+					$orderBy = "customerZipCode";
+					sortByASC($orderBy);	
 				}
 
 				if($sortZipCode == 2)
 				{
-					$orderBy = "customerLastName";
-					getcustomerOrderByDesc($orderBy);
+					$orderBy = "customerZipCode";
+					sortByDESC($orderBy);
 					$sortZipCode = 0;
 				}
 			}
@@ -151,14 +163,14 @@ if($_SESSION['userStatus'] == null){
 				$sortPhoneNumber++;
 				if($sortPhoneNumber == 1)
 				{
-					$orderBy = "customerLastName";
-					getcustomerOrderByAsc($orderBy);	
+					$orderBy = "customerPhoneNumber";
+					sortByASC($orderBy);	
 				}
 
 				if($sortPhoneNumber == 2)
 				{
-					$orderBy = "customerLastName";
-					getcustomerOrderByDesc($orderBy);
+					$orderBy = "customerPhoneNumber";
+					sortByDESC($orderBy);
 					$sortPhoneNumber = 0;
 				}
 			}
@@ -168,14 +180,14 @@ if($_SESSION['userStatus'] == null){
 				$sortRegistrationDate++;
 				if($sortRegistrationDate == 1)
 				{
-					$orderBy = "customerLastName";
-					getcustomerOrderByAsc($orderBy);	
+					$orderBy = "customerRegistrationDate";
+					sortByASC($orderBy);	
 				}
 
 				if($sortRegistrationDate == 2)
 				{
-					$orderBy = "customerLastName";
-					getcustomerOrderByDesc($orderBy);
+					$orderBy = "customerRegistrationDate";
+					sortByDESC($orderBy);
 					$sortRegistrationDate = 0;
 				}
 			}
@@ -185,14 +197,14 @@ if($_SESSION['userStatus'] == null){
 				$sortGender++;
 				if($sortGender == 1)
 				{
-					$orderBy = "customerLastName";
-					getcustomerOrderByAsc($orderBy);	
+					$orderBy = "customerGender";
+					sortByASC($orderBy);	
 				}
 
 				if($sortGender == 2)
 				{
-					$orderBy = "customerLastName";
-					getcustomerOrderByDesc($orderBy);
+					$orderBy = "customerGender";
+					sortByDESC($orderBy);
 					$sortGender = 0;
 				}
 			}
@@ -202,14 +214,14 @@ if($_SESSION['userStatus'] == null){
 				$sortEmail++;
 				if($sortEmail == 1)
 				{
-					$orderBy = "customerLastName";
-					getcustomerOrderByAsc($orderBy);	
+					$orderBy = "customerEmail";
+					sortByASC($orderBy);	
 				}
 
 				if($sortEmail == 2)
 				{
-					$orderBy = "customerLastName";
-					getcustomerOrderByDesc($orderBy);
+					$orderBy = "customerEmail";
+					sortByDESC($orderBy);
 					$sortEmail = 0;
 				}
 			}
@@ -219,14 +231,14 @@ if($_SESSION['userStatus'] == null){
 				$sortCountry++;
 				if($sortCountry == 1)
 				{
-					$orderBy = "customerLastName";
-					getcustomerOrderByAsc($orderBy);	
+					$orderBy = "customerCountry";
+					sortByASC($orderBy);	
 				}
 
 				if($sortCountry == 2)
 				{
-					$orderBy = "customerLastName";
-					getcustomerOrderByDesc($orderBy);
+					$orderBy = "customerCountry";
+					sortByDESC($orderBy);
 					$sortCountry = 0;
 				}
 			}
@@ -236,18 +248,18 @@ if($_SESSION['userStatus'] == null){
 				$sortStatus++;
 				if($sortStatus == 1)
 				{
-					$orderBy = "customerLastName";
-					getcustomerOrderByAsc($orderBy);	
+					$orderBy = "customerStatus";
+					sortByASC($orderBy);	
 				}
 
 				if($sortStatus == 2)
 				{
-					$orderBy = "customerLastName";
-					getcustomerOrderByDesc($orderBy);
+					$orderBy = "customerStatus";
+					sortByDESC($orderBy);
 					$sortStatus = 0;
 				}
 			}
-			
+
 			else
 			{
 				displayClientManager($db);
