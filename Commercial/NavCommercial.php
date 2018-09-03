@@ -26,7 +26,7 @@
 		<li>
 
 
-			<a href="#">Clients<div class="triangle-down"></div></a>
+			<a href="Commercial/client_seller.php">Clients<div class="triangle-down"></div></a>
 			<ul class="sousMenu">
 
 				<li><a href="#">Ajouter un Client</a></li>

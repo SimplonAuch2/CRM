@@ -1,14 +1,4 @@
-<?php
-session_start();
-	//If not director redirect to client_seller.php
-if($_SESSION['userStatus'] != true){
-	header('Location: client_seller.php');
-}
-if($_SESSION['userStatus'] == null){
-	header('Location: index.php');
-}
 
-?>
 
 <!DOCTYPE html>
 <html>
@@ -36,9 +26,9 @@ if($_SESSION['userStatus'] == null){
 
 		<li>
 
-			<a href="#">Clients<div class="triangle-down"></div></a>
+			<a>Clients<div class="triangle-down"></div></a>
 			<ul class="sousMenu">
-				<li><a href="#">Liste des clients</a></li>
+				<li><a href="client_manager.php">Liste des clients</a></li>
 			</ul>
 		</li>
 
@@ -46,42 +36,38 @@ if($_SESSION['userStatus'] == null){
 
 
 		<li>
-			<a href="#">Produits <div class="triangle-down"></div></a>
+			<a>Produits <div class="triangle-down"></div></a>
 			<ul class="sousMenu">
-				<li><a name="productList" href="#">Liste des Produits</a></li>
+				<li><a name="productList" href="product_manager.php">Liste des Produits</a></li>
 
-				<?php require 'init.php';
-					if(isset($_POST['productList']))
-					{
-						getProduct(); 
-					}
-		?>
+			
+		
 		
 			</ul>
 		</li>
 
 		<li>
-			<a href="#">Commandes / Devis<div class="triangle-down"></div></a>
+			<a>Commandes / Devis<div class="triangle-down"></div></a>
 			<ul class="sousMenu">
 				
 				
-				<li><a href="#">Liste des commandes</a></li>
-				<li><a href="#">Liste des devis</a></li>
+				<li><a href="purchase_manager.php">Liste des commandes</a></li>
+				<li><a href="purchase_manager.php">Liste des devis</a></li>
 			</ul>
 		</li>
 
 		<li>
 			<a href="#">Agenda<div class="triangle-down"></div></a>
 			<ul class="sousMenu">
-				<li><a href="#">Agenda commerciaux</a></li>
-				<li><a href="#">Agenda Directeur</a></li>
+				<li><a href="Calendar/">Agenda commerciaux</a></li>
+				<li><a href="Calandar/">Agenda Directeur</a></li>
 			</ul>
 		</li>			
 
 
 
 		<li>
-			<a href="#">Déconnexion</a>
+			<a href="index.php">Déconnexion</a>
 			<ul class="sousMenu">
 			</ul>
 		</li>
